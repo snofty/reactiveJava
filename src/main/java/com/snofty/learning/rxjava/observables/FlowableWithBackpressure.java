@@ -21,7 +21,7 @@ public class FlowableWithBackpressure {
                 .subscribeOn(Schedulers.newThread())
                 .subscribe(new Subscriber<>() {
                     private Subscription subscription;
-                    private AtomicInteger counter = new AtomicInteger(1);
+                    private final AtomicInteger counter = new AtomicInteger(1);
 
                     @Override
                     public void onSubscribe(Subscription s) {
@@ -34,6 +34,7 @@ public class FlowableWithBackpressure {
                     public void onNext(Car car) {
                         LOGGER.info("on next -> {}", car);
                         if (counter.incrementAndGet() == 5) {
+                            RxUtils.sleep(1000);
                             subscription.request(5);
                             counter.set(1);
                         }
