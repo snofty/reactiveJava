@@ -13,6 +13,6 @@ public class ObservableWithoutBackpressure {
                 .subscribeOn(Schedulers.newThread())
                 .subscribe(new DemoObserver());
 
-        RxUtils.sleep();
+        RxUtils.sleep(3000);
     }
 }

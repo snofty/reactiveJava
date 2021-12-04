@@ -11,7 +11,7 @@ public class ObservableUsingCallable {
         Callable<String> callable = new Callable<>() {
             @Override
             public String call() throws Exception {
-                RxUtils.sleep();
+                RxUtils.sleep(3000);
                 return "Hi";
             }
         };

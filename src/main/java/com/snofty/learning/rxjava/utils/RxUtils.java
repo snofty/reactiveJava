@@ -10,16 +10,17 @@ public class RxUtils {
     private RxUtils() {
 
     }
+
     public static List<Car> getRandomCars(int count) {
         return IntStream.range(0, count)
-                .mapToObj(operand -> new Car("car-"+operand, 4))
+                .mapToObj(operand -> new Car("car-" + operand, operand % 2 == 0 ? 4 : 7))
                 .collect(Collectors.toList());
     }
 
 
-    public static void sleep()  {
+    public static void sleep(int millis) {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(millis);
         } catch (InterruptedException e) {
             e.printStackTrace();
             Thread.currentThread().interrupt();

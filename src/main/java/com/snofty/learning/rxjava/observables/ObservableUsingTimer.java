@@ -10,6 +10,6 @@ public class ObservableUsingTimer {
     public static void main(String[] args) {
         Observable.timer(2, TimeUnit.SECONDS)
                 .subscribe(new DemoObserver());
-        RxUtils.sleep();
+        RxUtils.sleep(3000);
     }
 }
